@@ -3,11 +3,13 @@ import torch.nn as nn
 import torch.nn.functional as F
 import matplotlib.pyplot as plt
 
+
 def train_nn(X_train, y_train, X_test, y_test):
+    input_dim = X_train.shape[1]
     class CarPriceNN(nn.Module):
         def __init__(self):
             super().__init__()
-            self.fc1 = nn.Linear(10, 64)
+            self.fc1 = nn.Linear(input_dim, 64)
             self.fc2 = nn.Linear(64, 32)
             self.out = nn.Linear(32, 1)
 

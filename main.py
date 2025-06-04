@@ -13,7 +13,14 @@ from sklearn.metrics import classification_report, confusion_matrix
 
 # 1. Clean and encode
 df = clean_data(DATA_PATH)
+
+# from src.web_scraper import scrape_autovit
+# scraped_path = scrape_autovit(num_pages=2)  # sau câte pagini vrei
+# df = clean_data(scraped_path)
 df, encoders = encode_data(df, CATEGORICAL_VARS)
+
+print(df)
+
 
 # 2. Recommender
 features = df[NUMERIC_VARS + CATEGORICAL_VARS]
@@ -34,7 +41,7 @@ print(recs)
 X = df[FEATURE_VARS]
 X_scaled = scaler.fit_transform(X)
 
-y = df['selling_price']
+y = df['price']
 y_classification = df[CLASSIFICATION_TARGET]
 pipe = build_regression_pipeline()
 pipe.fit(X, y)
@@ -60,3 +67,5 @@ y_pred_cls = clf.predict(X_test_cls)
 print(classification_report(y_test_cls, y_pred_cls))
 print("\n--- Confusion Matrix ---")
 print(confusion_matrix(y_test_cls, y_pred_cls))
+
+

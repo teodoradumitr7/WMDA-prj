@@ -8,4 +8,4 @@ def train_recommender(features_scaled):
 def recommend(model, user_vector, df_original, scaler):
     scaled = scaler.transform([user_vector])
     _, indices = model.kneighbors(scaled)
-    return df_original.iloc[indices[0]][['name', 'year', 'selling_price']]
+    return df_original.iloc[indices[0]][['name', 'year', 'price']]
