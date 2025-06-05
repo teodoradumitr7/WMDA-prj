@@ -119,3 +119,18 @@ Clasa "Mediu" și "Premium" sunt mai echilibrate, dar încă au erori.
     1 greșit ca "Premium"
 
 '''
+
+'''
+nn_loss_plot:
+La început (epoch 0-40):
+    loss scade foarte puțin.
+    Modelul începe să învețe, dar este lent (curba e aproape plată).
+    Rețeaua face ajustări inițiale.
+După epoca 50:
+    loss începe să scadă accelerat.
+    Semn că modelul începe să înțeleagă mai bine relațiile dintre date (an, km, combustibil → preț).
+La final (epoca 100):
+    loss e în continuă scădere deci învățarea merge în direcția bună.
+    Nu s-a stabilizat complet, deci probabil mai poate învăța dacă se vor adauga mai multe epoci.
+
+'''
